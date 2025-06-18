@@ -1,8 +1,8 @@
 ﻿{
-  "name": "solana-listen-transactions-nodejs",
-  "version": "1.0.1",
-  "description": "Real-time DEX transaction tracking library",
-  "keywords": ["solana", "sol", "transactions", "trades", "dex", "trading", "blockchain", "websocket"],
+  "name": "base-listen-transactions",
+  "version": "1.0.0",
+  "description": "Real-time base transaction tracking library",
+  "keywords": ["base", "transactions", "trades", "dex", "trading", "blockchain", "websocket"],
   "main": "dex-tracker.js",
   "scripts": {
     "start": "node example.js",
