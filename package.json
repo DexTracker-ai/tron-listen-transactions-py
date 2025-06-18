@@ -1,13 +1,13 @@
-{
-  "name": "dex-tracker",
-  "version": "1.0.0",
+﻿{
+  "name": "solana-listen-transactions-nodejs",
+  "version": "1.0.1",
   "description": "Real-time DEX transaction tracking library",
+  "keywords": ["solana", "sol", "transactions", "trades", "dex", "trading", "blockchain", "websocket"],
   "main": "dex-tracker.js",
   "scripts": {
     "start": "node example.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["dex", "trading", "blockchain", "websocket"],
   "author": "",
   "license": "ISC",
   "dependencies": {

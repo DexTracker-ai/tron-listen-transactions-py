@@ -13,7 +13,7 @@ class DexTracker extends EventEmitter {
     this.reconnectDelay = options.reconnectDelay || 1000;
   }
 
-  connect(network, address) {
+  connect(address, network = 'sol') {
     if (!['sol', 'eth', 'bsc', 'base', 'tron'].includes(network)) {
       throw new Error('Unsupported network');
     }
