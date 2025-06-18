@@ -10,12 +10,6 @@ A Python library for listening to real-time DEX transactions using the DexTracke
 pip install tron-listen-transactions
 ```
 
-### From source
-
-```bash
-pip install websockets
-```
-
 ## Usage
 
 ```python
