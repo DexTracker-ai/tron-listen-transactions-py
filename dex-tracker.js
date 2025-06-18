@@ -7,8 +7,10 @@ class DexTracker extends EventEmitter {
     this.socket = null;
     this.isReconnecting = false;
     this.reconnectAttempts = 0;
+    this.network = null;
+    this.address = null;
     this.maxReconnectAttempts = options.maxReconnectAttempts || 5;
-    this.reconnectTimeout = options.reconnectTimeout || 5000;
+    this.reconnectDelay = options.reconnectDelay || 1000;
   }
 
   connect(network, address) {
@@ -16,13 +18,15 @@ class DexTracker extends EventEmitter {
       throw new Error('Unsupported network');
     }
 
-    const url = `wss://api.dextracker.com/ws/${network}/${address}`;
+    const url = `wss://api.cryptoscan.pro/dex?network=${network}&address=${address}`;
+    this.network = network;
+    this.address = address;
 
     this.socket = new WebSocket(url);
 
     this.socket.on('open', () => {
       this.reconnectAttempts = 0;
-      this.emit('connected');
+      this.emit('connected', { network, address });
     });
 
     this.socket.on('message', (data) => {
@@ -34,9 +38,9 @@ class DexTracker extends EventEmitter {
       }
     });
 
-    this.socket.on('close', (hadError) => {
-      this.emit('disconnected');
-      if (!hadError && this.reconnectAttempts < this.maxReconnectAttempts) {
+    this.socket.on('close', (code, reason) => {
+      this.emit('disconnected', { code, reason: reason || 'Connection closed' });
+      if (this.reconnectAttempts < this.maxReconnectAttempts) {
         this.reconnect();
       }
     });
@@ -62,12 +66,16 @@ class DexTracker extends EventEmitter {
     
     this.isReconnecting = true;
     this.reconnectAttempts++;
-    this.emit('reconnecting', this.reconnectAttempts);
+    this.emit('reconnecting', { attempt: this.reconnectAttempts });
 
     setTimeout(() => {
       this.isReconnecting = false;
       this.connect(this.network, this.address);
-    }, this.reconnectTimeout);
+    }, this.reconnectDelay);
+  }
+
+  isValidNetwork(network) {
+    return ['sol', 'eth', 'bsc', 'base', 'tron'].includes(network);
   }
 }
 
