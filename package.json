@@ -1,0 +1,16 @@
+{
+  "name": "dex-tracker",
+  "version": "1.0.0",
+  "description": "Real-time DEX transaction tracking library",
+  "main": "dex-tracker.js",
+  "scripts": {
+    "start": "node example.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["dex", "trading", "blockchain", "websocket"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}
