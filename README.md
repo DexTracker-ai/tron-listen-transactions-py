@@ -1,42 +1,49 @@
 # DexTracker Client
 
-A Node.js library for listening to real-time DEX transactions using the DexTracker API.
+A Python library for listening to real-time DEX transactions using the DexTracker API.
 
 ## Installation
 
 ```bash
-npm install ws
+pip install websockets
 ```
 
 ## Usage
 
-```javascript
-const DexTracker = require('./dex-tracker');
+```python
+import asyncio
+from dex_tracker import DexTracker
 
-const tracker = new DexTracker();
+async def main():
+    tracker = DexTracker()
 
-tracker.on('trade', (trade) => {
-  console.log('New trade:', trade);
-});
+    def on_trade(trade):
+        print(f"New trade: {trade}")
 
-tracker.connect('TDxL4V5LE6TYSFXSCWJkkSsCYbgmrDnTer');
+    tracker.set_on_trade(on_trade)
+    await tracker.connect('TDxL4V5LE6TYSFXSCWJkkSsCYbgmrDnTer')
+
+if __name__ == "__main__":
+    asyncio.run(main())
 ```
 
 ## API
 
 ### Methods
 
-- `connect(network, address)` - Connect to track trades for a specific token
+- `connect(address, network='tron')` - Connect to track trades for a specific token
 - `disconnect()` - Close the connection
-- `isConnected()` - Check connection status
+- `is_connected()` - Check connection status
+- `is_valid_network(network)` - Check if network is supported
 
-### Events
+### Event Handlers
 
-- `connected` - Fired when connection is established
-- `trade` - Fired when a new trade is received
-- `error` - Fired when an error occurs
-- `disconnected` - Fired when connection is lost
-- `reconnecting` - Fired during reconnection attempts
+Set event handlers using these methods:
+- `set_on_connected(handler)` - Called when connection is established
+- `set_on_trade(handler)` - Called when a new trade is received
+- `set_on_error(handler)` - Called when an error occurs
+- `set_on_disconnected(handler)` - Called when connection is lost
+- `set_on_reconnecting(handler)` - Called during reconnection attempts
 
 ### Supported Networks
 
@@ -48,15 +55,15 @@ tracker.connect('TDxL4V5LE6TYSFXSCWJkkSsCYbgmrDnTer');
 
 ## Trade Data Structure
 
-```javascript
+```python
 {
-  type: 'buy' | 'sell',
-  network: 'sol' | 'eth' | 'bsc' | 'base' | 'tron',
-  volume: number, // USD amount
-  price: number,  // USD price
-  exchange: string,
-  txn: string,    // Transaction ID
-  walletAddress: string,
-  pool: string    // Pool address
+    'type': 'buy' | 'sell',
+    'network': 'sol' | 'eth' | 'bsc' | 'base' | 'tron',
+    'volume': float,  # USD amount
+    'price': float,   # USD price
+    'exchange': str,
+    'txn': str,       # Transaction ID
+    'walletAddress': str,
+    'pool': str       # Pool address
 }
 ```
