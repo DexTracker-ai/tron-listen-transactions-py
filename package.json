@@ -1,16 +1,3 @@
 ﻿{
-  "name": "tron-listen-transactions",
-  "version": "1.0.0",
-  "description": "Real-time tron transactions and trades tracking library",
-  "keywords": ["tron", "transactions", "trades", "dex", "trading", "blockchain", "websocket"],
-  "main": "dex-tracker.js",
-  "scripts": {
-    "start": "node example.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "ws": "^8.13.0"
-  }
+# Deleted file
 }
