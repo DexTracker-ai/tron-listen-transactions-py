@@ -4,6 +4,14 @@ A Python library for listening to real-time DEX transactions using the DexTracke
 
 ## Installation
 
+### From PyPI
+
+```bash
+pip install tron-listen-transactions
+```
+
+### From source
+
 ```bash
 pip install websockets
 ```
@@ -12,7 +20,7 @@ pip install websockets
 
 ```python
 import asyncio
-from dex_tracker import DexTracker
+from tron_listen_transactions import DexTracker
 
 async def main():
     tracker = DexTracker()

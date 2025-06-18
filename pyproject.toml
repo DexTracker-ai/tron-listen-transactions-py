@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tron-listen-transactions"
+version = "1.0.0"
+description = "A Python library for listening to real-time TRON and other DEX transactions"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = [
+    "tron",
+    "blockchain", 
+    "cryptocurrency",
+    "dex",
+    "trading",
+    "websocket",
+    "real-time",
+    "transactions",
+    "ethereum",
+    "solana",
+    "bsc",
+    "base",
+    "defi"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Office/Business :: Financial",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "websockets>=11.0.3"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/tron-listen-transactions"
+"Bug Reports" = "https://github.com/yourusername/tron-listen-transactions/issues"
+"Source Code" = "https://github.com/yourusername/tron-listen-transactions"
