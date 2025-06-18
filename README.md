@@ -19,7 +19,7 @@ tracker.on('trade', (trade) => {
   console.log('New trade:', trade);
 });
 
-tracker.connect('0xa4a2e2ca3fbfe21aed83471d28b6f65a233c6e00');
+tracker.connect('TDxL4V5LE6TYSFXSCWJkkSsCYbgmrDnTer');
 ```
 
 ## API

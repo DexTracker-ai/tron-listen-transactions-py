@@ -1,8 +1,8 @@
 ﻿{
-  "name": "base-listen-transactions",
+  "name": "tron-listen-transactions",
   "version": "1.0.0",
-  "description": "Real-time base transaction tracking library",
-  "keywords": ["base", "transactions", "trades", "dex", "trading", "blockchain", "websocket"],
+  "description": "Real-time tron transactions and trades tracking library",
+  "keywords": ["tron", "transactions", "trades", "dex", "trading", "blockchain", "websocket"],
   "main": "dex-tracker.js",
   "scripts": {
     "start": "node example.js",
